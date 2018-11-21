@@ -42,7 +42,7 @@ const resolvers = {
 
     Author: {
         posts: (author, { id }) => {
-            var p;
+            let p;
             if (id === undefined) {
                 p = posts.filter((post) => post.authorId === author.id);
             } else {

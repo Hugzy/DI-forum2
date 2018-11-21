@@ -1,9 +1,6 @@
 var express = require('express');
 var graphqlHTTP = require('express-graphql');
-var { buildSchema } = require('graphql');
 var { makeExecutableSchema } = require('graphql-tools');
-var { getPost } = require("./post")
-var { getForum } = require("./forum")
 var { typeDefs } = require('./typedefs')
 var { resolvers } = require('./resolvers')
 
