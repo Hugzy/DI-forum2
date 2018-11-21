@@ -1,0 +1,2 @@
+var { fakeDatabase } = require("./database")
+
