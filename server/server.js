@@ -3,6 +3,8 @@ var graphqlHTTP = require('express-graphql');
 var { makeExecutableSchema } = require('graphql-tools');
 var { typeDefs } = require('./typedefs')
 var { resolvers } = require('./resolvers')
+var cors = require('cors')
+
 
 // Construct a schema, using GraphQL schema language
 var schema = makeExecutableSchema({
@@ -12,6 +14,8 @@ var schema = makeExecutableSchema({
 );
 
 var app = express();
+app.use(cors());
+
 app.use('/graphql', graphqlHTTP({
   schema: schema,
   rootValue: resolvers,

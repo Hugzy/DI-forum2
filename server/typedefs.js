@@ -29,44 +29,33 @@ const typeDefs =
   `
   */
   `
-type Author {
-    id: Int!
-    firstName: String
-    lastName: String
-    """
-    the list of Posts by this author
-    """
-    posts(id: ID): [Post]
-    threads: [Thread]
-  }
-
   type Post {
-    id: Int!
+    id: ID!
     title: String
-    author: Author
+    author: String
     votes: Int
   }
 
   type Thread{
     id: ID!
-    authorId: Int
-    forumId: String!
     author: String
     title: String
+    posts(id: ID): [Post]
+  }
+
+  type Forum{
+    id: ID!
+    author: String
+    name: String
+    parent: Forum
+    threads(id: ID): [Thread]
   }
 
   # the schema allows the following query:
   type Query {
-    posts: [Post]
-    author(id: Int!): Author
+    forums(id: ID): [Forum]
   }
 
-  # this schema allows the following mutation:
-  type Mutation {
-    upvotePost (
-      postId: Int!
-    ): Post
-  }
 `;
 
 exports.typeDefs = typeDefs;
