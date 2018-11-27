@@ -3,7 +3,8 @@ var { database } = require("./database")
 
 const resolvers = {
     Query: {
-        forums: (_, { id }) => filter(database.forums, { id: id })
+        forums: () => database.forums,
+        forum: (_, { id }) => filter(database.forums, { id: id })
     },
 
     /*

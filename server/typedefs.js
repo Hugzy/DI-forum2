@@ -53,7 +53,8 @@ const typeDefs =
 
   # the schema allows the following query:
   type Query {
-    forums(id: ID): [Forum]
+    forum(id: ID!): [Forum]
+    forums: [Forum]
   }
 
 `;
